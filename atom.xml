@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://dreamkong.com/"/>
+  <link href="https://dreamkong.github.io/"/>
   <updated>2017-06-23T08:14:29.000Z</updated>
-  <id>http://dreamkong.com/</id>
+  <id>https://dreamkong.github.io/</id>
   
   <author>
     <name>QinLong</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Python Hello World!</title>
-    <link href="http://dreamkong.com/2017/06/23/World/"/>
-    <id>http://dreamkong.com/2017/06/23/World/</id>
+    <link href="https://dreamkong.github.io/2017/06/23/World/"/>
+    <id>https://dreamkong.github.io/2017/06/23/World/</id>
     <published>2017-06-23T08:09:52.000Z</published>
     <updated>2017-06-23T08:14:29.000Z</updated>
     
