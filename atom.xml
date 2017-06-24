@@ -4,9 +4,9 @@
   <subtitle>优秀是一种习惯。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://dreamkong.github.io/"/>
+  <link href="http://www.qinlong.men/"/>
   <updated>2017-06-23T13:44:11.000Z</updated>
-  <id>https://dreamkong.github.io/</id>
+  <id>http://www.qinlong.men/</id>
   
   <author>
     <name>秦龙</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Python Hello World!</title>
-    <link href="https://dreamkong.github.io/2017/06/23/World/"/>
-    <id>https://dreamkong.github.io/2017/06/23/World/</id>
+    <link href="http://www.qinlong.men/2017/06/23/World/"/>
+    <id>http://www.qinlong.men/2017/06/23/World/</id>
     <published>2017-06-23T08:09:52.000Z</published>
     <updated>2017-06-23T13:44:11.000Z</updated>
     
@@ -32,10 +32,10 @@
     
     </summary>
     
-      <category term="python" scheme="https://dreamkong.github.io/categories/python/"/>
+      <category term="python" scheme="http://www.qinlong.men/categories/python/"/>
     
     
-      <category term="python" scheme="https://dreamkong.github.io/tags/python/"/>
+      <category term="python" scheme="http://www.qinlong.men/tags/python/"/>
     
   </entry>
   
