@@ -297,24 +297,24 @@
 
 
 
-<% if (theme.gitment){ %>
+
 <section class="comments" id="comments">
     <div id="gitment_thread"></div>
     <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     <script>
         var gitment = new Gitment({
-            owner: '<%- theme.gitment.owner %>',
-            repo: '<%- theme.gitment.repo %>',
+            owner: 'dreamkong',
+            repo: 'comments.github.io',
             oauth: {
-                client_id: '<%- theme.gitment.client_id %>',
-                client_secret: '<%- theme.gitment.client_secret %>',
+                client_id: 'c8b49e2efe2768a16dbf',
+                client_secret: '9daac8eaa671cadb51d9104cfc08c4de707cf392',
             },
         })
         gitment.render('comments')
     </script>
 </section>
-<% } %>
+
 
 
     <div id="gitalk-container"></div>
