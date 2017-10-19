@@ -20,18 +20,18 @@
     
     
     <meta name="keywords" content="python,高效">
-    <meta name="description" content="如何在列表,字典,集合中根据条件筛选数据1234567891011121314from random import randintfrom timeit import timeit​data = [randint(-10,10) for _ in range(10)] filter(lambda x:x &amp;gt;= 0,data)#首选列表解析 时间比filter少一半左右[x for x in">
+    <meta name="description" content="实际编程和面试都会遇到的典型问题。">
 <meta name="keywords" content="python,高效">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python高效编程(一)">
 <meta property="og:url" content="http://qinlong.men/2017/10/19/Python高效编程-一/index.html">
 <meta property="og:site_name" content="Dreamkong">
-<meta property="og:description" content="如何在列表,字典,集合中根据条件筛选数据1234567891011121314from random import randintfrom timeit import timeit​data = [randint(-10,10) for _ in range(10)] filter(lambda x:x &amp;gt;= 0,data)#首选列表解析 时间比filter少一半左右[x for x in">
+<meta property="og:description" content="实际编程和面试都会遇到的典型问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-10-19T02:09:34.000Z">
+<meta property="og:updated_time" content="2017-10-19T09:37:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python高效编程(一)">
-<meta name="twitter:description" content="如何在列表,字典,集合中根据条件筛选数据1234567891011121314from random import randintfrom timeit import timeit​data = [randint(-10,10) for _ in range(10)] filter(lambda x:x &amp;gt;= 0,data)#首选列表解析 时间比filter少一半左右[x for x in">
+<meta name="twitter:description" content="实际编程和面试都会遇到的典型问题。">
     
         <link rel="alternate" type="application/atom+xml" title="Dreamkong" href="/atom.xml">
     
@@ -184,7 +184,8 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="如何在列表-字典-集合中根据条件筛选数据"><a href="#如何在列表-字典-集合中根据条件筛选数据" class="headerlink" title="如何在列表,字典,集合中根据条件筛选数据"></a>如何在列表,字典,集合中根据条件筛选数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"><span class="keyword">from</span> timeit <span class="keyword">import</span> timeit</div><div class="line">​</div><div class="line">data = [randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)]</div><div class="line"> </div><div class="line">filter(<span class="keyword">lambda</span> x:x &gt;= <span class="number">0</span>,data)</div><div class="line"><span class="comment">#首选列表解析 时间比filter少一半左右</span></div><div class="line">[x <span class="keyword">for</span> x <span class="keyword">in</span> data <span class="keyword">if</span> x &gt;= <span class="number">0</span>]</div><div class="line">​</div><div class="line">data = &#123;x:randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">21</span>)&#125;</div><div class="line">&#123;k:v <span class="keyword">for</span> k,v <span class="keyword">in</span> data.items() <span class="keyword">if</span> v &gt; <span class="number">90</span>&#125;</div><div class="line">​</div><div class="line">data = set(data)</div><div class="line">&#123;x <span class="keyword">for</span> x <span class="keyword">in</span> data <span class="keyword">if</span> x%<span class="number">3</span>==<span class="number">0</span>&#125;</div></pre></td></tr></table></figure>
+            <p>实际编程和面试都会遇到的典型问题。<br><a id="more"></a></p>
+<h3 id="如何在列表-字典-集合中根据条件筛选数据"><a href="#如何在列表-字典-集合中根据条件筛选数据" class="headerlink" title="如何在列表,字典,集合中根据条件筛选数据"></a>如何在列表,字典,集合中根据条件筛选数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"><span class="keyword">from</span> timeit <span class="keyword">import</span> timeit</div><div class="line">​</div><div class="line">data = [randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)]</div><div class="line"> </div><div class="line">filter(<span class="keyword">lambda</span> x:x &gt;= <span class="number">0</span>,data)</div><div class="line"><span class="comment">#首选列表解析 时间比filter少一半左右</span></div><div class="line">[x <span class="keyword">for</span> x <span class="keyword">in</span> data <span class="keyword">if</span> x &gt;= <span class="number">0</span>]</div><div class="line">​</div><div class="line">data = &#123;x:randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">21</span>)&#125;</div><div class="line">&#123;k:v <span class="keyword">for</span> k,v <span class="keyword">in</span> data.items() <span class="keyword">if</span> v &gt; <span class="number">90</span>&#125;</div><div class="line">​</div><div class="line">data = set(data)</div><div class="line">&#123;x <span class="keyword">for</span> x <span class="keyword">in</span> data <span class="keyword">if</span> x%<span class="number">3</span>==<span class="number">0</span>&#125;</div></pre></td></tr></table></figure>
 <h3 id="如何为元组中每个元素命名-提高程序的可读性"><a href="#如何为元组中每个元素命名-提高程序的可读性" class="headerlink" title="如何为元组中每个元素命名,提高程序的可读性"></a>如何为元组中每个元素命名,提高程序的可读性</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#第一种</span></div><div class="line"><span class="comment"># NAME = 0</span></div><div class="line"><span class="comment"># AGE = 1</span></div><div class="line"><span class="comment"># SEX = 2</span></div><div class="line"><span class="comment"># EMAIL = 3</span></div><div class="line">NAME,AGE,SEX,EMAIL = range(<span class="number">4</span>)</div><div class="line"></div><div class="line">student = (<span class="string">'Jan'</span>,<span class="number">14</span>,<span class="string">'male'</span>,<span class="string">'jan@jan.net'</span>)</div><div class="line"></div><div class="line"><span class="comment">#name</span></div><div class="line">print(student[NAME])</div><div class="line"></div><div class="line"><span class="comment">#第二种</span></div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</div><div class="line"></div><div class="line">Student = namedtuple(<span class="string">'Student'</span>,[<span class="string">'name'</span>,<span class="string">'age'</span>,<span class="string">'sex'</span>,<span class="string">'email'</span>])</div><div class="line">student= Student(<span class="string">'Jan'</span>,<span class="number">14</span>,<span class="string">'male'</span>,<span class="string">'jan@jan.net'</span>)</div><div class="line"><span class="comment">#name</span></div><div class="line">print(student[NAME])</div><div class="line">student.age</div><div class="line">isinstance(student,tuple)</div></pre></td></tr></table></figure>
 <h3 id="如何统计序列中元素的出现频度"><a href="#如何统计序列中元素的出现频度" class="headerlink" title="如何统计序列中元素的出现频度"></a>如何统计序列中元素的出现频度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"></div><div class="line">data = [randint(<span class="number">1</span>,<span class="number">10</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">20</span>)]</div><div class="line">c = dict.fromkeys(data,<span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="comment">#第一种</span></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> data:</div><div class="line">    c[x]+=<span class="number">1</span></div><div class="line">    </div><div class="line"><span class="comment">#第二种</span></div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</div><div class="line"></div><div class="line">c2 = Counter(data)</div><div class="line"><span class="comment">#出现频度最高的三个</span></div><div class="line">c2.most_common(<span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="comment">#统计一篇文章中单词出现次数</span></div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="comment">#导入Python之禅</span></div><div class="line"><span class="keyword">import</span> this</div><div class="line"></div><div class="line">c3 = Counter(re.split(<span class="string">'\W+'</span>,this.s))</div></pre></td></tr></table></figure>
 <h3 id="如何根据字典中值的大小-对字典中的项排序"><a href="#如何根据字典中值的大小-对字典中的项排序" class="headerlink" title="如何根据字典中值的大小,对字典中的项排序"></a>如何根据字典中值的大小,对字典中的项排序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"></div><div class="line">data = &#123;x:randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">'abcdefg'</span>&#125;</div><div class="line"><span class="comment">#sorted(data.values())</span></div><div class="line"></div><div class="line"><span class="comment">#第一种</span></div><div class="line">t = zip(data.values(),data.keys())</div><div class="line">sorted(t)</div><div class="line"></div><div class="line"><span class="comment">#第二种</span></div><div class="line">sorted(data.items(),key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</div></pre></td></tr></table></figure>
@@ -197,7 +198,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-10-19T02:09:34.000Z" itemprop="dateUpdated">2017-10-19 10:09:34</time>
+    最后更新时间：<time datetime="2017-10-19T09:37:46.000Z" itemprop="dateUpdated">2017-10-19 17:37:46</time>
 </span><br>
 
 
@@ -242,7 +243,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/19/Python高效编程-一/&title=《Python高效编程(一)》 — Dreamkong&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/19/Python高效编程-一/&title=《Python高效编程(一)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -300,24 +301,24 @@
 
 
 
-
+<% if (theme.gitment){ %>
 <section class="comments" id="comments">
     <div id="gitment_thread"></div>
     <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     <script>
         var gitment = new Gitment({
-            owner: 'dreamkong',
-            repo: 'comments.github.io',
+            owner: '<%- theme.gitment.owner %>',
+            repo: '<%- theme.gitment.repo %>',
             oauth: {
-                client_id: 'c8b49e2efe2768a16dbf',
-                client_secret: '9daac8eaa671cadb51d9104cfc08c4de707cf392',
+                client_id: '<%- theme.gitment.client_id %>',
+                client_secret: '<%- theme.gitment.client_secret %>',
             },
         })
         gitment.render('comments')
     </script>
 </section>
-
+<% } %>
 
 
     <div id="gitalk-container"></div>
@@ -405,7 +406,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/19/Python高效编程-一/&title=《Python高效编程(一)》 — Dreamkong&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/19/Python高效编程-一/&title=《Python高效编程(一)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
