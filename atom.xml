@@ -64,26 +64,4 @@
     
   </entry>
   
-  <entry>
-    <title>欢迎来到我的博客!</title>
-    <link href="http://qinlong.men/2017/06/23/World/"/>
-    <id>http://qinlong.men/2017/06/23/World/</id>
-    <published>2017-06-23T08:09:52.000Z</published>
-    <updated>2017-06-26T15:08:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>我的第一行 Python 代码:</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">print(&apos;Hello World!&apos;)</div><div class="line">print(&apos;欢迎来到我的博客!&apos;)</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;我的第一行 Python 代码:&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="http://qinlong.men/categories/python/"/>
-    
-    
-      <category term="python" scheme="http://qinlong.men/tags/python/"/>
-    
-  </entry>
-  
 </feed>
