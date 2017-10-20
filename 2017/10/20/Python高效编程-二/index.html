@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Python高效编程(二) | Dreamkong | 人生苦短,我用Python。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,高效">
+    <meta name="description" content="实际编程和面试都会遇到的典型问题。">
+<meta name="keywords" content="python,高效">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python高效编程(二)">
+<meta property="og:url" content="http://qinlong.men/2017/10/20/Python高效编程-二/index.html">
+<meta property="og:site_name" content="Dreamkong">
+<meta property="og:description" content="实际编程和面试都会遇到的典型问题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-20T05:16:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python高效编程(二)">
+<meta name="twitter:description" content="实际编程和面试都会遇到的典型问题。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Dreamkong" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦龙</h5>
+          <a href="mailto:dreamkong0113@gmail.com" title="dreamkong0113@gmail.com" class="mail">dreamkong0113@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/dreamkong" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python高效编程(二)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python高效编程(二)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-20T05:10:15.000Z" itemprop="datePublished" class="page-time">
+  2017-10-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python高效编程/">python高效编程</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何实现可迭代对象和迭代器对象"><span class="post-toc-number">1.</span> <span class="post-toc-text">如何实现可迭代对象和迭代器对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何使用生成器函数实现可迭代对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">如何使用生成器函数实现可迭代对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何进行反向迭代以及如何实现反向迭代"><span class="post-toc-number">3.</span> <span class="post-toc-text">如何进行反向迭代以及如何实现反向迭代</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何对迭代器做切片操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">如何对迭代器做切片操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何在一个for语句中迭代多个可迭代对象"><span class="post-toc-number">5.</span> <span class="post-toc-text">如何在一个for语句中迭代多个可迭代对象</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Python高效编程-二"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python高效编程(二)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-20 13:10:15" datetime="2017-10-20T05:10:15.000Z"  itemprop="datePublished">2017-10-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python高效编程/">python高效编程</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>实际编程和面试都会遇到的典型问题。</p>
+<a id="more"></a>
+<h3 id="如何实现可迭代对象和迭代器对象"><a href="#如何实现可迭代对象和迭代器对象" class="headerlink" title="如何实现可迭代对象和迭代器对象"></a>如何实现可迭代对象和迭代器对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#可迭代对象</span></div><div class="line">l = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</div><div class="line">s = <span class="string">'abcde'</span></div><div class="line"></div><div class="line"><span class="comment">#迭代器对象</span></div><div class="line">t = iter(l)</div><div class="line"></div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterator,Iterable</div><div class="line"></div><div class="line"><span class="comment">#实现一个迭代器对象WeatherIterator,__next__方法每次返回一个城市气温</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WeatherIterator</span><span class="params">(Iterator)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,cities)</span>:</span></div><div class="line">        self.cities = cities</div><div class="line">        self.index = <span class="number">0</span></div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getWeather</span><span class="params">(city)</span>:</span></div><div class="line">        r = requests.get(<span class="string">u'http://wthrcdn.etouch.cn/weather_mini?city='</span> + city)</div><div class="line">        data = r.json()[<span class="string">'data'</span>][<span class="string">'forecast'</span>][<span class="number">0</span>]</div><div class="line">        <span class="keyword">return</span> <span class="string">'%s: %s ,%s '</span>%(city,data[<span class="string">'low'</span>],data[<span class="string">'high'</span>])</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">if</span> self.index == len(self.cities):</div><div class="line">            <span class="keyword">raise</span> StopIteration</div><div class="line">        city = self.cities[self.index]</div><div class="line">        self.index += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> getWeather(city)</div><div class="line"></div><div class="line"><span class="comment">#实现一个可迭代对象WeatherIterable,__iter__方法返回一个迭代器对象</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WeatherIterable</span><span class="params">(Iterable)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,cities)</span>:</span></div><div class="line">        self.cities = cities</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> WeatherIterator(self.cities)</div><div class="line">    </div><div class="line"><span class="comment">#[u'漠河',u'海南',u'乌鲁木齐',u'上海']</span></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> WeatherIterable([<span class="string">u'漠河'</span>,<span class="string">u'海南'</span>,<span class="string">u'乌鲁木齐'</span>,<span class="string">u'上海'</span>]):</div><div class="line">    print(x)</div></pre></td></tr></table></figure>
+<h3 id="如何使用生成器函数实现可迭代对象"><a href="#如何使用生成器函数实现可迭代对象" class="headerlink" title="如何使用生成器函数实现可迭代对象"></a>如何使用生成器函数实现可迭代对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 给定一个可迭代对象的类,它能迭代出给定范围内的所有素数</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimeNumber</span><span class="params">()</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,start,end)</span>:</span></div><div class="line">        self.start = start</div><div class="line">        self.end = end</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPrimeNum</span><span class="params">(self,k)</span>:</span></div><div class="line">        <span class="keyword">if</span> k &lt; <span class="number">2</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,k):</div><div class="line">            <span class="keyword">if</span> k % i == <span class="number">0</span>:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(self.start,self.end + <span class="number">1</span>):</div><div class="line">            <span class="keyword">if</span> self.isPrimeNum(k):</div><div class="line">                <span class="keyword">yield</span> k</div><div class="line"></div><div class="line">                </div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> PrimeNumber(<span class="number">1</span>,<span class="number">100</span>):</div><div class="line">    print(x)</div></pre></td></tr></table></figure>
+<h3 id="如何进行反向迭代以及如何实现反向迭代"><a href="#如何进行反向迭代以及如何实现反向迭代" class="headerlink" title="如何进行反向迭代以及如何实现反向迭代"></a>如何进行反向迭代以及如何实现反向迭代</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#实现一个连续浮点数发生器FloatRange(start,end,step)</span></div><div class="line"></div><div class="line"><span class="comment"># l = [1,2,3,4,5]</span></div><div class="line"></div><div class="line"><span class="comment"># for x in reversed(l):</span></div><div class="line"><span class="comment">#     print(x)</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FloatRange</span><span class="params">()</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,start,end,step=<span class="number">0.1</span>)</span>:</span></div><div class="line">        self.start = start</div><div class="line">        self.end = end</div><div class="line">        self.step = step</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></div><div class="line">        t = self.start</div><div class="line">        <span class="keyword">while</span> t &lt;= self.end:</div><div class="line">            <span class="keyword">yield</span> t</div><div class="line">            t += self.step</div><div class="line">            </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__reversed__</span><span class="params">(self)</span>:</span></div><div class="line">        t = self.end</div><div class="line">        <span class="keyword">while</span> t &gt;= self.start:</div><div class="line">            <span class="keyword">yield</span> t</div><div class="line">            t -= self.step</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> reversed(FloatRange(<span class="number">1.0</span>,<span class="number">5.5</span>,<span class="number">0.5</span>)):</div><div class="line">    print(x)</div></pre></td></tr></table></figure>
+<h3 id="如何对迭代器做切片操作"><a href="#如何对迭代器做切片操作" class="headerlink" title="如何对迭代器做切片操作"></a>如何对迭代器做切片操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#有一个文本文件,我们想获取某范围内的内容 eg:100-300lines</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> this</div><div class="line"></div><div class="line">f = open(<span class="string">'test'</span>,<span class="string">'w'</span>)</div><div class="line">f.write(this.s)</div><div class="line">f.close()</div><div class="line"></div><div class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> islice</div><div class="line"></div><div class="line">f = open(<span class="string">'test'</span>,<span class="string">'r'</span>)</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> islice(f,<span class="number">3</span>,<span class="number">5</span>):</div><div class="line">    print(x)</div></pre></td></tr></table></figure>
+<h3 id="如何在一个for语句中迭代多个可迭代对象"><a href="#如何在一个for语句中迭代多个可迭代对象" class="headerlink" title="如何在一个for语句中迭代多个可迭代对象"></a>如何在一个for语句中迭代多个可迭代对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"></div><div class="line"><span class="comment">#每个学生有三门成绩(并行)</span></div><div class="line">chese_grade = [randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">50</span>)]</div><div class="line">english_grade = [randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">50</span>)]</div><div class="line">math_grade = [randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">50</span>)]</div><div class="line"></div><div class="line"><span class="keyword">for</span> c,e,m <span class="keyword">in</span> zip(chese_grade,english_grade,math_grade):</div><div class="line">    print(<span class="string">'总分:%3d 语文:%3d 英语:%3d 数学:%3d'</span>%(c+e+m,c,e,m))</div><div class="line"></div><div class="line"><span class="comment">#有四个班,一次英语考试的成绩存储在四个列表里,统计90以上的人数(串行)</span></div><div class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</div><div class="line"></div><div class="line">chain([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</div><div class="line"></div><div class="line">english_grade1 = [randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">45</span>)]</div><div class="line">english_grade2 = [randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">53</span>)]</div><div class="line">english_grade3 = [randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">49</span>)]</div><div class="line">english_grade4 = [randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">35</span>)]</div><div class="line"></div><div class="line">count = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> chain(english_grade1,english_grade2,english_grade3,english_grade4):</div><div class="line">    <span class="keyword">if</span> x &gt;= <span class="number">90</span>:</div><div class="line">        count += <span class="number">1</span></div><div class="line"></div><div class="line">print(count)</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-20T05:16:33.000Z" itemprop="dateUpdated">2017-10-20 13:16:33</time>
+</span><br>
+
+
+        
+        如需转发请与我联系，获得允许之后请注明出处：<a href="/2017/10/20/Python高效编程-二/" target="_blank" rel="external">http://qinlong.men/2017/10/20/Python高效编程-二/</a>
+        
+    </div>
+    <footer>
+        <a href="http://qinlong.men">
+            <img src="/img/avatar.jpg" alt="秦龙">
+            秦龙
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/高效/">高效</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/10/20/Python高效编程-二/&title=《Python高效编程(二)》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/20/Python高效编程-二/&title=《Python高效编程(二)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/10/20/Python高效编程-二/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python高效编程(二)》 — Dreamkong&url=http://qinlong.men/2017/10/20/Python高效编程-二/&via=http://qinlong.men" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/10/20/Python高效编程-二/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/19/Python高效编程-一/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python高效编程(一)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+<% if (theme.gitment){ %>
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: '<%- theme.gitment.owner %>',
+            repo: '<%- theme.gitment.repo %>',
+            oauth: {
+                client_id: '<%- theme.gitment.client_id %>',
+                client_secret: '<%- theme.gitment.client_secret %>',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+<% } %>
+
+
+    <div id="gitalk-container"></div>
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦龙 &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/10/20/Python高效编程-二/&title=《Python高效编程(二)》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/20/Python高效编程-二/&title=《Python高效编程(二)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/10/20/Python高效编程-二/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python高效编程(二)》 — Dreamkong&url=http://qinlong.men/2017/10/20/Python高效编程-二/&via=http://qinlong.men" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/10/20/Python高效编程-二/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3awW7rMAwEwPz/T/tdC6R1diW9AJZGp6CJbY0PLEXy9YrX9WO9//39N++/zz+/P2XZwsDAeCzjul35FpOtjyHvr8XAwDiH8VcEm7n1Fa+/Am6yNwwMDIz7z/fpYx6aMTAwML4TcO9Pl8nRt31lGBgYpzHaQ2abFCYB90tncQwMjAcy8qr79z//l/4GBgbGoxhXudp2ZhtkxxYGBsbejDzArSqTtQMcxbUYGBibMtrQ2RbU5pPCiIqBgXEMY6wcn7cEVg2W/XJ/DAyMAxhJaGuTwvzImhxlo9QQAwNjU0b0xUQCl5fS5lNMDAyMExirCvT3QTwf1CiCLAYGxtaM/IKpdC3g5QfdD4dYDAyM7RhtwB0bGlvVJCj+h2BgYGzHyDPHPO17BasNph9eKwYGxtaMvEk59rB8QzODYhgYGLsy8jGLthg331Soz+IYGBibMtrtzjw+D83ta8XAwNibMeZumwTtGx0stGFgYGzKSJKwVT2HmYYBBgYGRg7IB7zGtpg/95f7YGBgHMZot7gqlWx7GhgYGGcy2s5nEogHBybaTiUGBsamjKtcSeqWp3RJQI8SSgwMjK0Z88FuDDw2nLFs6g0DA+OBjPkN5YNc7SsrAj0GBsYBjKRkVhS/hoL1DBIDAwNjbPwrbyHkwfrDiRwDAwOjPI7OtxmKJ2JgYBzAaIv1ebK4dtgCAwPjTEYeClf9cqxUt6Cch4GB8TzGP7t9GQZGx0NUAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
