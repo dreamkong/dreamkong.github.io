@@ -20,19 +20,19 @@
     
     
     <meta name="keywords" content="python,高效">
-    <meta name="description" content="实际编程和面试都会遇到的典型问题。                                                                                              图片来源于网络">
+    <meta name="description" content="实际编程和面试都会遇到的典型问题。">
 <meta name="keywords" content="python,高效">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python高效编程(三)">
 <meta property="og:url" content="http://qinlong.men/2017/10/20/Python高效编程-三/index.html">
 <meta property="og:site_name" content="Dreamkong">
-<meta property="og:description" content="实际编程和面试都会遇到的典型问题。                                                                                              图片来源于网络">
+<meta property="og:description" content="实际编程和面试都会遇到的典型问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2692212-a4957aa59b24a21f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-10-20T09:26:55.000Z">
+<meta property="og:updated_time" content="2017-10-24T08:53:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python高效编程(三)">
-<meta name="twitter:description" content="实际编程和面试都会遇到的典型问题。                                                                                              图片来源于网络">
+<meta name="twitter:description" content="实际编程和面试都会遇到的典型问题。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2692212-a4957aa59b24a21f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     
         <link rel="alternate" type="application/atom+xml" title="Dreamkong" href="/atom.xml">
@@ -187,6 +187,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>实际编程和面试都会遇到的典型问题。</p>
+<a id="more"></a>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -194,7 +195,6 @@
                 </div>
                 <div class="image-caption">图片来源于网络</div>
             </figure>
-<a id="more"></a>
 <h3 id="如何判断字符串a是否已字符串b开头或者结尾"><a href="#如何判断字符串a是否已字符串b开头或者结尾" class="headerlink" title="如何判断字符串a是否已字符串b开头或者结尾"></a>如何判断字符串a是否已字符串b开头或者结尾</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#遍历以'.py'和'.sh'结尾的文件,改为可执行权限</span></div><div class="line"><span class="keyword">import</span> os, stat</div><div class="line"></div><div class="line">s = <span class="string">'test.py'</span></div><div class="line">s.endswith((<span class="string">'.py'</span>,<span class="string">'.sh'</span>))<span class="comment">#参数只能是tuple</span></div><div class="line"></div><div class="line"><span class="comment">#文件权限</span></div><div class="line">oct(os.stat(<span class="string">'test.sh'</span>).st_mode)</div><div class="line">os.chmod(<span class="string">'test.sh'</span>,os.stat(<span class="string">'test.sh'</span>).st_mode|stat.S_IXUSR)</div><div class="line"></div><div class="line"><span class="keyword">for</span> name <span class="keyword">in</span> os.listdir():</div><div class="line">    <span class="keyword">if</span> name.endswith((<span class="string">'.py'</span>,<span class="string">'.sh'</span>)):</div><div class="line">        os.chmod(name,os.stat(name).st_mode|stat.S_IXUSR)</div></pre></td></tr></table></figure>
 <h3 id="如何调整字符串中的文本格式"><a href="#如何调整字符串中的文本格式" class="headerlink" title="如何调整字符串中的文本格式"></a>如何调整字符串中的文本格式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="string">'''</span></div><div class="line"><span class="string">2017-10-09adasdasdasd</span></div><div class="line"><span class="string">2017-11-12dsfsfsdfsdfsd</span></div><div class="line"><span class="string">将其中的日期(yyyy-MM-dd)改为(MM/dd/YYYY)格式</span></div><div class="line"><span class="string">'''</span></div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">s = <span class="string">'2017-10-09adasdasdasd\n2017-11-12dsfsfsdfsdfsd'</span></div><div class="line">re.sub(<span class="string">'(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)'</span>,<span class="string">r'\2/\3/\1'</span>,s)</div><div class="line">re.sub(<span class="string">'(?P&lt;year&gt;\d&#123;4&#125;)-(?P&lt;month&gt;\d&#123;2&#125;)-(?P&lt;day&gt;\d&#123;2&#125;)'</span>,<span class="string">r'\g&lt;month&gt;/\g&lt;day&gt;/\g&lt;year&gt;'</span>,s)</div></pre></td></tr></table></figure>
 <h3 id="如何将多个小字符串拼接成一个大字符串"><a href="#如何将多个小字符串拼接成一个大字符串" class="headerlink" title="如何将多个小字符串拼接成一个大字符串"></a>如何将多个小字符串拼接成一个大字符串</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#第一种(拼接项少) +</span></div><div class="line"><span class="comment">#第二种(拼接项多) ''.join()</span></div><div class="line">list1 = [<span class="string">'abc'</span>,<span class="string">'123'</span>,<span class="string">'23'</span>,<span class="string">'sdsa'</span>,<span class="string">'xyz'</span>]</div><div class="line"><span class="string">''</span>.join(list1)</div><div class="line"></div><div class="line">list2 = [<span class="string">'abc'</span>,<span class="number">123</span>,<span class="string">'23'</span>,<span class="number">4654</span>,<span class="string">'xyz'</span>]</div><div class="line"><span class="string">''</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span> list2)</div></pre></td></tr></table></figure>
@@ -206,7 +206,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-10-20T09:26:55.000Z" itemprop="dateUpdated">2017-10-20 17:26:55</time>
+    最后更新时间：<time datetime="2017-10-24T08:53:44.000Z" itemprop="dateUpdated">2017-10-24 16:53:44</time>
 </span><br>
 
 
@@ -251,11 +251,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/20/Python高效编程-三/&title=《Python高效编程(三)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。
-
-                
-                    
-                    ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/20/Python高效编程-三/&title=《Python高效编程(三)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -290,7 +286,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/24/Python高效编程-四/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python高效编程(四)</h4>
+      </a>
+    </div>
   
 
   
@@ -418,11 +421,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/20/Python高效编程-三/&title=《Python高效编程(三)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。
-
-                
-                    
-                    ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/20/Python高效编程-三/&title=《Python高效编程(三)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
