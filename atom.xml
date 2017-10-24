@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qinlong.men/"/>
-  <updated>2017-10-24T09:13:07.000Z</updated>
+  <updated>2017-10-24T09:13:05.000Z</updated>
   <id>http://qinlong.men/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Mac下安装Python虚拟环境Virtualenv</title>
-    <link href="http://qinlong.men/2017/10/24/Mac%E4%B8%8B%E5%AE%89%E8%A3%85Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83Virtualenv/"/>
-    <id>http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/</id>
-    <published>2017-10-24T09:11:10.000Z</published>
-    <updated>2017-10-24T09:13:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>virtualenv官方文档对virtualenv的解释是:</p><blockquote><p><strong>virtualenv is a tool to create isolated Python environments.</strong></p></blockquote><p>virtualenv可以创建一个独立的 Python 环境，每个项目都可以有一个专属环境，避免了不同各种包安装冲突以及版本要求问题，可以让你更方便快捷的切换不同 Python 环境，更高效的开发。</p><blockquote><p>pip是 Python 自带的包管理工具。</p></blockquote><p>###安装 virtualenv</p><p><code>$ sudo pip install virtualenv</code></p><p>测试virtualenv是否安装成功:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir ~/Pyenv</div><div class="line">$ cd ~/Pyenv</div><div class="line">$ mkvirtualenv env1</div></pre></td></tr></table></figure><p>###安装 virtualenvwrapper<br>Virtaulenvwrapper是对virtualenv的封装，可以更方便地管理虚拟环境。</p><p><code>$ sudo easy_install virtualenvwrapper</code></p><p>第一次安装完成后需要，先设置<code>WORKON_HOME</code>，即环境的存储路径，并且运行<code>source /usr/local/bin/virtualenvwrapper.sh</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export WORKON_HOME=~/Pyenv</div><div class="line">$ source /usr/local/bin/virtualenvwrapper.sh</div></pre></td></tr></table></figure><p>把export命令和source命令加入到~/.bash_profile中，每次打开终端就无需初始化了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ vim ~/.bash_profile</div><div class="line">$ export WORKON_HOME=~/Pyenv</div><div class="line">$ source /usr/local/bin/virtualenvwrapper.sh</div></pre></td></tr></table></figure><p>####创建虚拟环境<br><code>$ mkvirtualenv env２</code></p><p>环境创建之后，会自动进入该目录，并激活该环境，当前路径前面就会有 (env2)。</p><p>####列出虚拟环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ lsvirtualenv -b</div><div class="line">env1</div><div class="line">env2</div></pre></td></tr></table></figure></p><p>####切换虚拟环境：<br><code>$ workon env1</code></p><p>####查看环境里安装了哪些包：<br><code>$ lssitepackages</code></p><p>####复制虚拟环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cpvirtualenv env1 env3</div><div class="line">Copying env1 as env3...</div></pre></td></tr></table></figure></p><p>####退出虚拟环境：<br><code>$ deactivate</code></p><p>####删除虚拟环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rmvirtualenv env2</div><div class="line">Removing env2...</div></pre></td></tr></table></figure></p><p>至此，Python虚拟环境Virtualenv安装流程完毕，你可以在你自己的虚拟环境下随意安装各种包，不同项目间也不会相互影响了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;virtualenv官方文档对virtualenv的解释是:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;virtualenv is a tool to create isolated Python environments.&lt;/strong&gt;&lt;/p&gt;
-&lt;/bl
-      
-    
-    </summary>
-    
-      <category term="python环境" scheme="http://qinlong.men/categories/python%E7%8E%AF%E5%A2%83/"/>
-    
-    
-      <category term="python" scheme="http://qinlong.men/tags/python/"/>
-    
-  </entry>
   
   <entry>
     <title>Python高效编程(四)</title>
@@ -140,6 +112,34 @@
     </summary>
     
       <category term="python高效编程" scheme="http://qinlong.men/categories/python%E9%AB%98%E6%95%88%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="python" scheme="http://qinlong.men/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac下安装Python虚拟环境Virtualenv</title>
+    <link href="http://qinlong.men/2017/10/18/Mac%E4%B8%8B%E5%AE%89%E8%A3%85Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83Virtualenv/"/>
+    <id>http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/</id>
+    <published>2017-10-18T09:11:10.000Z</published>
+    <updated>2017-10-24T09:16:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>virtualenv官方文档对virtualenv的解释是:</p><blockquote><p><strong>virtualenv is a tool to create isolated Python environments.</strong></p></blockquote><p>virtualenv可以创建一个独立的 Python 环境，每个项目都可以有一个专属环境，避免了不同各种包安装冲突以及版本要求问题，可以让你更方便快捷的切换不同 Python 环境，更高效的开发。</p><blockquote><p>pip是 Python 自带的包管理工具。</p></blockquote><h3 id="安装-virtualenv"><a href="#安装-virtualenv" class="headerlink" title="安装 virtualenv"></a>安装 virtualenv</h3><p><code>$ sudo pip install virtualenv</code></p><p>测试virtualenv是否安装成功:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir ~/Pyenv</div><div class="line">$ cd ~/Pyenv</div><div class="line">$ mkvirtualenv env1</div></pre></td></tr></table></figure><h3 id="安装-virtualenvwrapper"><a href="#安装-virtualenvwrapper" class="headerlink" title="安装 virtualenvwrapper"></a>安装 virtualenvwrapper</h3><p>Virtaulenvwrapper是对virtualenv的封装，可以更方便地管理虚拟环境。</p><p><code>$ sudo easy_install virtualenvwrapper</code></p><p>第一次安装完成后需要，先设置<code>WORKON_HOME</code>，即环境的存储路径，并且运行<code>source /usr/local/bin/virtualenvwrapper.sh</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export WORKON_HOME=~/Pyenv</div><div class="line">$ source /usr/local/bin/virtualenvwrapper.sh</div></pre></td></tr></table></figure><p>把export命令和source命令加入到~/.bash_profile中，每次打开终端就无需初始化了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ vim ~/.bash_profile</div><div class="line">$ export WORKON_HOME=~/Pyenv</div><div class="line">$ source /usr/local/bin/virtualenvwrapper.sh</div></pre></td></tr></table></figure><h4 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h4><p><code>$ mkvirtualenv env２</code></p><p>环境创建之后，会自动进入该目录，并激活该环境，当前路径前面就会有 (env2)。</p><h4 id="列出虚拟环境："><a href="#列出虚拟环境：" class="headerlink" title="列出虚拟环境："></a>列出虚拟环境：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ lsvirtualenv -b</div><div class="line">env1</div><div class="line">env2</div></pre></td></tr></table></figure><h4 id="切换虚拟环境："><a href="#切换虚拟环境：" class="headerlink" title="切换虚拟环境："></a>切换虚拟环境：</h4><p><code>$ workon env1</code></p><h4 id="查看环境里安装了哪些包："><a href="#查看环境里安装了哪些包：" class="headerlink" title="查看环境里安装了哪些包："></a>查看环境里安装了哪些包：</h4><p><code>$ lssitepackages</code></p><h4 id="复制虚拟环境："><a href="#复制虚拟环境：" class="headerlink" title="复制虚拟环境："></a>复制虚拟环境：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cpvirtualenv env1 env3</div><div class="line">Copying env1 as env3...</div></pre></td></tr></table></figure><h4 id="退出虚拟环境："><a href="#退出虚拟环境：" class="headerlink" title="退出虚拟环境："></a>退出虚拟环境：</h4><p><code>$ deactivate</code></p><h4 id="删除虚拟环境："><a href="#删除虚拟环境：" class="headerlink" title="删除虚拟环境："></a>删除虚拟环境：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rmvirtualenv env2</div><div class="line">Removing env2...</div></pre></td></tr></table></figure><p>至此，Python虚拟环境Virtualenv安装流程完毕，你可以在你自己的虚拟环境下随意安装各种包，不同项目间也不会相互影响了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;virtualenv官方文档对virtualenv的解释是:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;virtualenv is a tool to create isolated Python environments.&lt;/strong&gt;&lt;/p&gt;
+&lt;/bl
+      
+    
+    </summary>
+    
+      <category term="python环境" scheme="http://qinlong.men/categories/python%E7%8E%AF%E5%A2%83/"/>
     
     
       <category term="python" scheme="http://qinlong.men/tags/python/"/>

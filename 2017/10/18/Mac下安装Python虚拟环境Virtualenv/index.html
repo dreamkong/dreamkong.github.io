@@ -24,11 +24,11 @@
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac下安装Python虚拟环境Virtualenv">
-<meta property="og:url" content="http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/index.html">
+<meta property="og:url" content="http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/index.html">
 <meta property="og:site_name" content="Dreamkong">
 <meta property="og:description" content="virtualenv官方文档对virtualenv的解释是:  virtualenv is a tool to create isolated Python environments.  virtualenv可以创建一个独立的 Python 环境，每个项目都可以有一个专属环境，避免了不同各种包安装冲突以及版本要求问题，可以让你更方便快捷的切换不同 Python 环境，更高效的开发。  pip是 P">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-10-24T09:13:07.000Z">
+<meta property="og:updated_time" content="2017-10-24T09:16:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下安装Python虚拟环境Virtualenv">
 <meta name="twitter:description" content="virtualenv官方文档对virtualenv的解释是:  virtualenv is a tool to create isolated Python environments.  virtualenv可以创建一个独立的 Python 环境，每个项目都可以有一个专属环境，避免了不同各种包安装冲突以及版本要求问题，可以让你更方便快捷的切换不同 Python 环境，更高效的开发。  pip是 P">
@@ -137,8 +137,8 @@
         <h1 class="title">Mac下安装Python虚拟环境Virtualenv</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-10-24T09:11:10.000Z" itemprop="datePublished" class="page-time">
-  2017-10-24
+                <time datetime="2017-10-18T09:11:10.000Z" itemprop="datePublished" class="page-time">
+  2017-10-18
 </time>
 
 
@@ -156,13 +156,20 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-virtualenv"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装 virtualenv</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-virtualenvwrapper"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装 virtualenvwrapper</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建虚拟环境"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">创建虚拟环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#列出虚拟环境："><span class="post-toc-number">2.2.</span> <span class="post-toc-text">列出虚拟环境：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#切换虚拟环境："><span class="post-toc-number">2.3.</span> <span class="post-toc-text">切换虚拟环境：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看环境里安装了哪些包："><span class="post-toc-number">2.4.</span> <span class="post-toc-text">查看环境里安装了哪些包：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#复制虚拟环境："><span class="post-toc-number">2.5.</span> <span class="post-toc-text">复制虚拟环境：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#退出虚拟环境："><span class="post-toc-number">2.6.</span> <span class="post-toc-text">退出虚拟环境：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#删除虚拟环境："><span class="post-toc-number">2.7.</span> <span class="post-toc-text">删除虚拟环境：</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-Mac下安装Python虚拟环境Virtualenv"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">Mac下安装Python虚拟环境Virtualenv</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-10-24 17:11:10" datetime="2017-10-24T09:11:10.000Z"  itemprop="datePublished">2017-10-24</time>
+            <time class="post-time" title="2017-10-18 17:11:10" datetime="2017-10-18T09:11:10.000Z"  itemprop="datePublished">2017-10-18</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python环境/">python环境</a></li></ul>
@@ -185,24 +192,23 @@
 <blockquote>
 <p>pip是 Python 自带的包管理工具。</p>
 </blockquote>
-<p>###安装 virtualenv</p>
-<p><code>$ sudo pip install virtualenv</code></p>
+<h3 id="安装-virtualenv"><a href="#安装-virtualenv" class="headerlink" title="安装 virtualenv"></a>安装 virtualenv</h3><p><code>$ sudo pip install virtualenv</code></p>
 <p>测试virtualenv是否安装成功:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir ~/Pyenv</div><div class="line">$ cd ~/Pyenv</div><div class="line">$ mkvirtualenv env1</div></pre></td></tr></table></figure>
-<p>###安装 virtualenvwrapper<br>Virtaulenvwrapper是对virtualenv的封装，可以更方便地管理虚拟环境。</p>
+<h3 id="安装-virtualenvwrapper"><a href="#安装-virtualenvwrapper" class="headerlink" title="安装 virtualenvwrapper"></a>安装 virtualenvwrapper</h3><p>Virtaulenvwrapper是对virtualenv的封装，可以更方便地管理虚拟环境。</p>
 <p><code>$ sudo easy_install virtualenvwrapper</code></p>
 <p>第一次安装完成后需要，先设置<code>WORKON_HOME</code>，即环境的存储路径，并且运行<code>source /usr/local/bin/virtualenvwrapper.sh</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export WORKON_HOME=~/Pyenv</div><div class="line">$ source /usr/local/bin/virtualenvwrapper.sh</div></pre></td></tr></table></figure>
 <p>把export命令和source命令加入到~/.bash_profile中，每次打开终端就无需初始化了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ vim ~/.bash_profile</div><div class="line">$ export WORKON_HOME=~/Pyenv</div><div class="line">$ source /usr/local/bin/virtualenvwrapper.sh</div></pre></td></tr></table></figure>
-<p>####创建虚拟环境<br><code>$ mkvirtualenv env２</code></p>
+<h4 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h4><p><code>$ mkvirtualenv env２</code></p>
 <p>环境创建之后，会自动进入该目录，并激活该环境，当前路径前面就会有 (env2)。</p>
-<p>####列出虚拟环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ lsvirtualenv -b</div><div class="line">env1</div><div class="line">env2</div></pre></td></tr></table></figure></p>
-<p>####切换虚拟环境：<br><code>$ workon env1</code></p>
-<p>####查看环境里安装了哪些包：<br><code>$ lssitepackages</code></p>
-<p>####复制虚拟环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cpvirtualenv env1 env3</div><div class="line">Copying env1 as env3...</div></pre></td></tr></table></figure></p>
-<p>####退出虚拟环境：<br><code>$ deactivate</code></p>
-<p>####删除虚拟环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rmvirtualenv env2</div><div class="line">Removing env2...</div></pre></td></tr></table></figure></p>
+<h4 id="列出虚拟环境："><a href="#列出虚拟环境：" class="headerlink" title="列出虚拟环境："></a>列出虚拟环境：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ lsvirtualenv -b</div><div class="line">env1</div><div class="line">env2</div></pre></td></tr></table></figure>
+<h4 id="切换虚拟环境："><a href="#切换虚拟环境：" class="headerlink" title="切换虚拟环境："></a>切换虚拟环境：</h4><p><code>$ workon env1</code></p>
+<h4 id="查看环境里安装了哪些包："><a href="#查看环境里安装了哪些包：" class="headerlink" title="查看环境里安装了哪些包："></a>查看环境里安装了哪些包：</h4><p><code>$ lssitepackages</code></p>
+<h4 id="复制虚拟环境："><a href="#复制虚拟环境：" class="headerlink" title="复制虚拟环境："></a>复制虚拟环境：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cpvirtualenv env1 env3</div><div class="line">Copying env1 as env3...</div></pre></td></tr></table></figure>
+<h4 id="退出虚拟环境："><a href="#退出虚拟环境：" class="headerlink" title="退出虚拟环境："></a>退出虚拟环境：</h4><p><code>$ deactivate</code></p>
+<h4 id="删除虚拟环境："><a href="#删除虚拟环境：" class="headerlink" title="删除虚拟环境："></a>删除虚拟环境：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rmvirtualenv env2</div><div class="line">Removing env2...</div></pre></td></tr></table></figure>
 <p>至此，Python虚拟环境Virtualenv安装流程完毕，你可以在你自己的虚拟环境下随意安装各种包，不同项目间也不会相互影响了。</p>
 
         </div>
@@ -211,12 +217,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-10-24T09:13:07.000Z" itemprop="dateUpdated">2017-10-24 17:13:07</time>
+    最后更新时间：<time datetime="2017-10-24T09:16:35.000Z" itemprop="dateUpdated">2017-10-24 17:16:35</time>
 </span><br>
 
 
         
-        如需转发请与我联系，获得允许之后请注明出处：<a href="/2017/10/24/Mac下安装Python虚拟环境Virtualenv/" target="_blank" rel="external">http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/</a>
+        如需转发请与我联系，获得允许之后请注明出处：<a href="/2017/10/18/Mac下安装Python虚拟环境Virtualenv/" target="_blank" rel="external">http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/</a>
         
     </div>
     <footer>
@@ -246,7 +252,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/&title=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/&title=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -256,22 +262,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/&title=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/&title=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&url=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/&via=http://qinlong.men" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&url=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/&via=http://qinlong.men" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -291,14 +297,21 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/19/Python高效编程-一/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python高效编程(一)</h4>
+      </a>
+    </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/10/24/Python高效编程-四/" id="post-next" class="post-nav-link">
+      <a href="/2017/06/26/Linux-操作命令/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Python高效编程(四)</h4>
+        <h4 class="title">Linux 操作命令</h4>
       </a>
     </div>
   
@@ -409,7 +422,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/&title=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/&title=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -419,22 +432,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/&title=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/&title=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&url=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/&via=http://qinlong.men" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mac下安装Python虚拟环境Virtualenv》 — Dreamkong&url=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/&via=http://qinlong.men" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/10/24/Mac下安装Python虚拟环境Virtualenv/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/10/18/Mac下安装Python虚拟环境Virtualenv/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -445,7 +458,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aQW4CMQwFUO5/aSp11Yoy/XZsYPFmhUCT8QMpDj+53eLr/n39fH19Pd71bLRnYz577m3jwsPDw2uVnhd6/cgq/vH965HzmvHw8PC2eUkzSO56fHyvJVyPlrccPDw8vPfyrovYW7jny2s8PDy8T+OdxAd5m+mNgIeHh/d6Xi84OAlek3uTT8eyFjw8PLyY11vsvvf1+loeDw8Pr7Wrnk++1W2w5K7zavHw8PA2eMmg+azb26yqfpqPj4eHh7fBq/7hzyODHjshFcJcPDw8vAVeeTPpYL49CWd7DQkPDw9vg1ed9KsHsPK2kUcbhUgXDw8Pb4GXhKT5dJ80lWrjSZbgUaSCh4eHN8Q7WdpWv6CTKb66Cfcra8HDw8N7IW/qLFPveMHJIYPCSTE8PDy81nmAk5V478BBDj5pVHh4eHgbvPy2PBToRcbVcDn6efDw8PDexKu+0yuu2s2itoGHh4e3xjvZmkpg+dGEk024PyrHw8PDW+BNPSYpovrV9JbaeHh4eNu8fPkbbdUPNZVeA/jnHwMeHh7eKC+Z0Ddi1mr8UY5L8PDw8BZ4ve3/6jGsXqG910//MeDh4eEt8KqBwmw76dUT/Tx4eHh4o7x7cFXLTUKEvG1Un4uHh4e3zesdKu3FE71CT8JcPDw8vNfwkjX41LGAXsRQbUV4eHh4G7xqKFA9ENArdKxh4OHh4a3xTgqdGmdqK+42WxYeHh5ePGfm6/Fq3JDHB9VtOTw8PLxtXm/CrR4mOCkoCSzK22B4eHh4x7zZpXD1cEBvm61wdAAPDw9vjdeblPOpv8c+Slnw8PDwPpJXLXG2bUTtAQ8PD++tvHzZPZWCnMS+eHh4eNu8avBa/bQXDedbcQNZCx4eHl7M622AzW5o9bbTCmEuHh4e3gzvC9h60HXTVnQjAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqUlEQVR42u3aW27CQBAEQO5/aXIAcOh5LBCl/IXAYNdG8mx65naLj/vD8fjp79+9OvPq0/vFcTtx4OHh4Y1v/fHnfn//8Zz5t3r4J0uAh4eHd4xXfaAnT+OtwpPfDx4eHt7f4uXnJwXj6nw8PDy8v8vrbXwnRQIPDw/v23hJGJHfRBU2jzkWshY8PDy8mFcNF77h9ZH+Hh4eHt64q55Hq3nzrLqJz4vBk6vj4eHhHeBVI9pkY90bC6guWeE+8fDw8FZ51UChVzyq4Wy+WC8WEQ8PD+8YL2lxVR/Zkzi410570dnDw8PDW+JVA9zqVjhvdE1GBEYNMDw8PLwiryreKgy9mLhcBvDw8PDewuu1r5LH9zwaThbrMmvBw8PDO8yrDmCNwtbieEEepuDh4eGd4OXxaDVOPYFstt/w8PDwVnl58ymPBnpts+ovRGUJDw8P7y28POSt3vTWsEIec+Dh4eGd4OUjAkncUA0RtiKM6Lp4eHh4B3jViDZv/FebYb12VzQGgYeHhzfmJeFCNaKtlpaFv8lVIcHDw8M7xnvP4NQtPqqh7eVrPDw8vAO8PCpNbjTf/vYCjmYIgoeHh3eMt7UtzqeeJkNdeYnCw8PD2+UtrE1xWzzBVzfZeHh4eCd4u9vZyS1WxwIKW3M8PDy8Y7zqqFOvuZVcK2mqNach8PDw8FZ51YGA/HHfKx7VslFugOHh4eGNefMxqcn2OooVegceHh7eKu9ePPLxrMk5k2gYDw8P7zRv/oytjiD0itB8afDw8PB2efNwoTqIsLWtj66Fh4eHd4xXvWS1SPRuejlrwcPDw/sQb+udK/Yk1HhyPh4eHt4X8+ZlJtmyN7NqPDw8vAO8JIzoDQpUF7c3wPqiMODh4eGt8nb/o+8tSvW7Hwss8PDw/jvvBxDQc6jJmEr3AAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
