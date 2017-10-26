@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Python高效编程(五) | Dreamkong | 人生苦短,我用Python。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python">
+    <meta name="description" content="实际编程和面试都会遇到的典型问题。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python高效编程(五)">
+<meta property="og:url" content="http://qinlong.men/2017/10/26/Python高效编程-五/index.html">
+<meta property="og:site_name" content="Dreamkong">
+<meta property="og:description" content="实际编程和面试都会遇到的典型问题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2692212-a4957aa59b24a21f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-10-26T07:47:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python高效编程(五)">
+<meta name="twitter:description" content="实际编程和面试都会遇到的典型问题。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2692212-a4957aa59b24a21f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="Dreamkong" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦龙</h5>
+          <a href="mailto:dreamkong0113@gmail.com" title="dreamkong0113@gmail.com" class="mail">dreamkong0113@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/dreamkong" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python高效编程(五)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python高效编程(五)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-26T10:40:37.000Z" itemprop="datePublished" class="page-time">
+  2017-10-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python高效编程/">Python高效编程</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何派生内置不可变类型并修改其实例化行为"><span class="post-toc-number">1.</span> <span class="post-toc-text">如何派生内置不可变类型并修改其实例化行为</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何为创建大量实例节省内存"><span class="post-toc-number">2.</span> <span class="post-toc-text">如何为创建大量实例节省内存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何创建可管理的对象属性"><span class="post-toc-number">3.</span> <span class="post-toc-text">如何创建可管理的对象属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何让类支持比较操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">如何让类支持比较操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何使用描述符对实例属性做类型检查"><span class="post-toc-number">5.</span> <span class="post-toc-text">如何使用描述符对实例属性做类型检查</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何通过实例方法名字的字符串调用方法"><span class="post-toc-number">6.</span> <span class="post-toc-text">如何通过实例方法名字的字符串调用方法</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Python高效编程-五"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python高效编程(五)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-26 18:40:37" datetime="2017-10-26T10:40:37.000Z"  itemprop="datePublished">2017-10-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python高效编程/">Python高效编程</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>实际编程和面试都会遇到的典型问题。</p>
+<a id="more"></a>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/2692212-a4957aa59b24a21f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片来源于网络" title="">
+                </div>
+                <div class="image-caption">图片来源于网络</div>
+            </figure>
+<h3 id="如何派生内置不可变类型并修改其实例化行为"><a href="#如何派生内置不可变类型并修改其实例化行为" class="headerlink" title="如何派生内置不可变类型并修改其实例化行为"></a>如何派生内置不可变类型并修改其实例化行为</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#我们想自定义一种新类型元组,对于传入的可迭代对象,我们只想保留其中int类型&gt;0的元素 新类型是内置tuple的子类</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntTuple</span><span class="params">(tuple)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls,iterable)</span>:</span></div><div class="line">        <span class="comment"># 使用生成器过滤</span></div><div class="line">        g = (x <span class="keyword">for</span> x <span class="keyword">in</span> iterable <span class="keyword">if</span> isinstance(x,int) <span class="keyword">and</span> x &gt; <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> super(IntTuple,cls).__new__(cls,g)</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,iterable)</span>:</span></div><div class="line">        super(IntTuple,self).__init__()</div><div class="line">        </div><div class="line">it = IntTuple([<span class="number">1</span>,<span class="number">-2</span>,<span class="number">3</span>,<span class="string">'x'</span>])    </div><div class="line">it</div></pre></td></tr></table></figure>
+<h3 id="如何为创建大量实例节省内存"><a href="#如何为创建大量实例节省内存" class="headerlink" title="如何为创建大量实例节省内存"></a>如何为创建大量实例节省内存</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Player</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,uid,name,status=<span class="number">0</span>,level=<span class="number">1</span>)</span>:</span></div><div class="line">        self.uid = uid</div><div class="line">        self.name = name</div><div class="line">        self.status = status</div><div class="line">        self.level = level</div><div class="line">        </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Player2</span><span class="params">(object)</span>:</span></div><div class="line">    __slots__ = [<span class="string">'uid'</span>,<span class="string">'name'</span>,<span class="string">'status'</span>,<span class="string">'level'</span>]</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,uid,name,status=<span class="number">0</span>,level=<span class="number">1</span>)</span>:</span></div><div class="line">        self.uid = uid</div><div class="line">        self.name = name</div><div class="line">        self.status = status</div><div class="line">        self.level = level       </div><div class="line"></div><div class="line">p1 = Player(<span class="string">'001'</span>,<span class="string">'uu'</span>)</div><div class="line">p2 = Player2(<span class="string">'001'</span>,<span class="string">'uu'</span>)</div><div class="line">set(dir(p1)) - set(dir(p2))</div><div class="line"><span class="comment"># p1比p2多了&#123;'__dict__', '__weakref__'&#125;</span></div><div class="line"><span class="comment"># '__dict__'可以动态绑定</span></div><div class="line">p1.x = <span class="number">123</span></div><div class="line"><span class="keyword">del</span> p1.__dict__[<span class="string">'x'</span>]</div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="comment"># 占用了320内存</span></div><div class="line">sys.getsizeof(p1.__dict__)</div><div class="line"></div><div class="line"><span class="comment"># p2事先定义__slots__ 声明了实例属性名字的列表</span></div><div class="line"><span class="comment"># p2就无法动态绑定 从而节省了内存</span></div><div class="line"><span class="comment"># p2.x = 123</span></div></pre></td></tr></table></figure>
+<h3 id="如何创建可管理的对象属性"><a href="#如何创建可管理的对象属性" class="headerlink" title="如何创建可管理的对象属性"></a>如何创建可管理的对象属性</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cricle</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,radius)</span>:</span></div><div class="line">        self._radius = radius</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="meta">    @property</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">radius</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self._radius</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="meta">    @radius.setter</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">radius</span><span class="params">(self,value)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> isinstance(value,(int,float)):</div><div class="line">            <span class="keyword">raise</span> ValueError(<span class="string">'wrong type'</span>)</div><div class="line">        self._radius = value</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getArea</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self._radius ** <span class="number">2</span> * pi</div><div class="line"></div><div class="line">c = Cricle(<span class="number">5</span>)</div><div class="line">c.radius</div></pre></td></tr></table></figure>
+<h3 id="如何让类支持比较操作"><a href="#如何让类支持比较操作" class="headerlink" title="如何让类支持比较操作"></a>如何让类支持比较操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi</div><div class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> total_ordering</div><div class="line"></div><div class="line"><span class="meta">@total_ordering</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cricle</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,radius)</span>:</span></div><div class="line">        self._radius = radius</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">area</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self._radius ** <span class="number">2</span> * pi</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__lt__</span><span class="params">(self,obj)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.area() &lt; obj.area()</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__eq__</span><span class="params">(self,obj)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.area() == obj.area()</div><div class="line">    </div><div class="line">c1 = Cricle(<span class="number">3</span>)</div><div class="line">c2 = Cricle(<span class="number">5.0</span>)</div><div class="line">c1 &gt; c2</div></pre></td></tr></table></figure>
+<h3 id="如何使用描述符对实例属性做类型检查"><a href="#如何使用描述符对实例属性做类型检查" class="headerlink" title="如何使用描述符对实例属性做类型检查"></a>如何使用描述符对实例属性做类型检查</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 描述符 __get__ __set__ __del__</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Attr</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,type_)</span>:</span></div><div class="line">        self.name = name</div><div class="line">        self.type_ = type_</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self,instance,cls)</span>:</span></div><div class="line">        <span class="keyword">return</span> instance.__dict__[self.name]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self,instance,value)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> isinstance(value,self.type_):</div><div class="line">            <span class="keyword">raise</span> TypeError(<span class="string">'expected an %s'</span>%self.type_)</div><div class="line">        instance.__dict__[self.name] = value</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__delete__</span><span class="params">(self,instance)</span>:</span></div><div class="line">        <span class="keyword">del</span> instance.__dict__[self.name]</div><div class="line">        </div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></div><div class="line">    name = Attr(<span class="string">'name'</span>,str)</div><div class="line">    age = Attr(<span class="string">'age'</span>,int)</div><div class="line">    height = Attr(<span class="string">'height'</span>,float)</div><div class="line">    </div><div class="line">p = Person()</div><div class="line">p.name = <span class="string">'123'</span></div><div class="line">p.age = <span class="number">123</span></div><div class="line">p.height = <span class="number">1.0</span></div></pre></td></tr></table></figure>
+<h3 id="如何通过实例方法名字的字符串调用方法"><a href="#如何通过实例方法名字的字符串调用方法" class="headerlink" title="如何通过实例方法名字的字符串调用方法"></a>如何通过实例方法名字的字符串调用方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,r)</span>:</span></div><div class="line">        self.r = r</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">area</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.r ** <span class="number">2</span> * <span class="number">3.14</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,w,h)</span>:</span></div><div class="line">        self.w = w</div><div class="line">        self.h = h</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_area</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.w * self.h</div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Triangle</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,a,b,c)</span>:</span></div><div class="line">        self.a = a</div><div class="line">        self.b = b</div><div class="line">        self.c = c</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getArea</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment">#海伦公式:√[p(p-a)(p-b)(p-c) ]其中p=1/2(a+b+c)</span></div><div class="line">        p = (self.a + self.b + self.c) / <span class="number">2</span></div><div class="line">        <span class="keyword">return</span> (p * (p - self.a) * (p - self.b) * (p - self.c)) ** <span class="number">0.5</span></div><div class="line">    </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getArea</span><span class="params">(shape)</span>:</span></div><div class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> (<span class="string">'area'</span>,<span class="string">'get_area'</span>,<span class="string">'getArea'</span>):</div><div class="line">        f = getattr(shape,name,<span class="keyword">None</span>)</div><div class="line">        <span class="keyword">if</span> f:</div><div class="line">            <span class="keyword">return</span> f()</div><div class="line">        </div><div class="line">        </div><div class="line">shape1 = Circle(<span class="number">3</span>)</div><div class="line">shape2 = Rectangle(<span class="number">5</span>,<span class="number">6</span>)</div><div class="line">shape3 = Triangle(<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</div><div class="line"></div><div class="line">shapes = [shape1,shape2,shape3]</div><div class="line">print(list(map(getArea,shapes)))</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-26T07:47:35.000Z" itemprop="dateUpdated">2017-10-26 15:47:35</time>
+</span><br>
+
+
+        
+        如需转发请与我联系，获得允许之后请注明出处：<a href="/2017/10/26/Python高效编程-五/" target="_blank" rel="external">http://qinlong.men/2017/10/26/Python高效编程-五/</a>
+        
+    </div>
+    <footer>
+        <a href="http://qinlong.men">
+            <img src="/img/avatar.jpg" alt="秦龙">
+            秦龙
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/10/26/Python高效编程-五/&title=《Python高效编程(五)》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/26/Python高效编程-五/&title=《Python高效编程(五)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/10/26/Python高效编程-五/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python高效编程(五)》 — Dreamkong&url=http://qinlong.men/2017/10/26/Python高效编程-五/&via=http://qinlong.men" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/10/26/Python高效编程-五/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/24/Python高效编程-四/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python高效编程(四)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitment_thread"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+            var gitment = new Gitment({
+                owner: 'dreamkong',
+                repo: 'comments.github.io',
+                oauth: {
+                    client_id: 'c8b49e2efe2768a16dbf',
+                    client_secret: '9daac8eaa671cadb51d9104cfc08c4de707cf392',
+                },
+            })
+            gitment.render('comments')
+        </script>
+    </section>
+
+
+
+    <div id="gitalk-container"></div>
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦龙 &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/10/26/Python高效编程-五/&title=《Python高效编程(五)》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/10/26/Python高效编程-五/&title=《Python高效编程(五)》 — Dreamkong&source=实际编程和面试都会遇到的典型问题。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/10/26/Python高效编程-五/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python高效编程(五)》 — Dreamkong&url=http://qinlong.men/2017/10/26/Python高效编程-五/&via=http://qinlong.men" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/10/26/Python高效编程-五/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aQY7CMAwFUO5/aWbLaNTyv9tBInlZIShJXheWnfjxiMfzZRx9fzRen0w+/13ltoGBgfG1jHwTOeN8iy3y/L8YGBj7MI4i2NEzd23l/GUle8PAwMBIGO22kvCNgYGBcYXxJkULlsyDLAYGBkYbOttl2oD7oVocAwPjCxn5qfvnP//L/QYGBsZXMZ7laANrG2RnAwMDY21GHuDOD8hmxWcyZ7EfDAyMRRnJFLPFZmXwcHUMDIylGckf7i1922O4BImBgbEPo70qyLfbJppXZsDAwFiVkbdztQlcfp2Zz3z4PAYGxgaMnNQWrnmCmDdwFHkoBgbGlzOubLF9Jr8SSAraX99gYGAszUjKzqSFIkns7m0Oe1PEYmBgLMfIWxzyAnV2bZBfpkZ5LgYGxnKM9mi+TfJmB3DDV4yBgbEcY5bkzVq42n8Ni1gMDIyFGFfCZZ7qtYdrbSmLgYGxNiP/edaQkSeX+eaKghkDA2M5Rh5e27CYI5M5MTAw9mTMGrPasDhL+IYNrBgYGIsyZs2m+cL5DLMgjoGBsRujXay9jLzSnFEEXAwMjCUYz3LkIbU9jGtL3KhDBAMDYwnGLNjlF5wtNZmhTR8xMDDWYMyaHmbXk7NXFjVwYGBgbMBIDtFmqduVg7zicgIDAwMjD3yjoNy+lCK6Y2BgbMyYFaXt0X9RAGNgYGzAaA/r26TwrmYLDAyMPRl5KLzrWC2/Fi16RjAwMNZk/AAIjiLgWv1rOwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
