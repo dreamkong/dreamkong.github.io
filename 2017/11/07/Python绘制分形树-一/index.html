@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Python绘制分形树(一) | Dreamkong | 人生苦短,我用Python。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python">
+    <meta name="description" content="一步一步了解turtle这个库,先绘制个五角星练手                                                                                              五角星.png              画布12turtle.screensize(800, 600, &quot;green&quot;)turtle.screensize()">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python绘制分形树(一)">
+<meta property="og:url" content="http://qinlong.men/2017/11/07/Python绘制分形树-一/index.html">
+<meta property="og:site_name" content="Dreamkong">
+<meta property="og:description" content="一步一步了解turtle这个库,先绘制个五角星练手                                                                                              五角星.png              画布12turtle.screensize(800, 600, &quot;green&quot;)turtle.screensize()">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2692212-efcfadcf4d8c8ec8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-07T09:20:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python绘制分形树(一)">
+<meta name="twitter:description" content="一步一步了解turtle这个库,先绘制个五角星练手                                                                                              五角星.png              画布12turtle.screensize(800, 600, &quot;green&quot;)turtle.screensize()">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2692212-efcfadcf4d8c8ec8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="Dreamkong" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦龙</h5>
+          <a href="mailto:dreamkong0113@gmail.com" title="dreamkong0113@gmail.com" class="mail">dreamkong0113@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/dreamkong" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python绘制分形树(一)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python绘制分形树(一)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-07T09:19:05.000Z" itemprop="datePublished" class="page-time">
+  2017-11-07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#画布"><span class="post-toc-number">1.</span> <span class="post-toc-text">画布</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#画笔控制命令"><span class="post-toc-number">2.</span> <span class="post-toc-text">画笔控制命令:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#运动命令"><span class="post-toc-number">3.</span> <span class="post-toc-text">运动命令:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#五角星绘制"><span class="post-toc-number">4.</span> <span class="post-toc-text">五角星绘制</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Python绘制分形树-一"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python绘制分形树(一)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-07 17:19:05" datetime="2017-11-07T09:19:05.000Z"  itemprop="datePublished">2017-11-07</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一步一步了解turtle这个库,先绘制个五角星练手</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/2692212-efcfadcf4d8c8ec8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="五角星.png" title="">
+                </div>
+                <div class="image-caption">五角星.png</div>
+            </figure>
+<h4 id="画布"><a href="#画布" class="headerlink" title="画布"></a>画布</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">turtle.screensize(<span class="number">800</span>, <span class="number">600</span>, <span class="string">"green"</span>)</div><div class="line">turtle.screensize() <span class="comment">#返回默认大小(400, 300)</span></div></pre></td></tr></table></figure>
+<h4 id="画笔控制命令"><a href="#画笔控制命令" class="headerlink" title="画笔控制命令:"></a>画笔控制命令:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">turtle.down() <span class="comment">#落下画笔,进行绘制</span></div><div class="line">turtle.up() <span class="comment">#抬起画笔,不进行绘制</span></div><div class="line">turtle.pensize(width) <span class="comment">#绘制时的宽度</span></div><div class="line">turtle.color(colorstring) <span class="comment">#绘制时的颜色</span></div><div class="line">turtle.fillcolor(colorstring) <span class="comment">#绘制的填充颜色</span></div><div class="line">turtle.fill(Ture)</div><div class="line">turtle.fill(false)</div></pre></td></tr></table></figure>
+<h4 id="运动命令"><a href="#运动命令" class="headerlink" title="运动命令:"></a>运动命令:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">turtle.forward(degree) <span class="comment">#向前移动距离degree代表距离</span></div><div class="line">turtle.backward(degree) <span class="comment">#向后移动距离degree代表距离</span></div><div class="line">turtle.right(degree) <span class="comment">#向右移动多少度</span></div><div class="line">turtle.left(degree) <span class="comment">#向左移动多少度</span></div><div class="line">turtle.goto(x,y) <span class="comment">#将画笔移动到坐标为x,y的位置</span></div><div class="line">turtle.stamp() <span class="comment">#复制当前图形</span></div><div class="line">turtle.speed(speed) <span class="comment">#画笔绘制的速度范围[0,10]整数</span></div><div class="line">turtle.clear() 清空turtle画的笔迹</div><div class="line">turtle.reset() 清空窗口，重置turtle状态为起始状态</div><div class="line">turtle.undo()撤销上一个turtle动作</div><div class="line">turtle.isvisible()返回当前turtle是否可见</div><div class="line">turtle.stamp() 复制当前图形</div><div class="line">turtle.write(<span class="string">'string'</span>) 写字符串<span class="string">'string'</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">turtle.circle/)(<span class="number">10</span>) 画一个R为<span class="number">10</span>的圆形</div><div class="line">turtle.circle/)(<span class="number">30</span>, <span class="number">270</span>) 圆弧为<span class="number">270</span>度</div><div class="line">turtle.circle/)(<span class="number">20</span>, steps=<span class="number">3</span>) 画一个R为<span class="number">20</span>的圆内切多边形</div></pre></td></tr></table></figure>
+<h4 id="五角星绘制"><a href="#五角星绘制" class="headerlink" title="五角星绘制"></a>五角星绘制</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> turtle</div><div class="line"></div><div class="line">line = <span class="number">50</span></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">25</span>):</div><div class="line">	<span class="keyword">if</span> x % <span class="number">5</span> ==<span class="number">0</span>:</div><div class="line">		line += <span class="number">20</span> </div><div class="line">	turtle.forward(line)</div><div class="line">	turtle.right(<span class="number">144</span>)</div><div class="line">turtle.exitonclick()</div></pre></td></tr></table></figure>
+<p><strong>参考</strong>: <a href="https://docs.python.org/3/library/turtle.html" target="_blank" rel="external">https://docs.python.org/3/library/turtle.html</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-07T09:20:28.000Z" itemprop="dateUpdated">2017-11-07 17:20:28</time>
+</span><br>
+
+
+        
+        如需转发请与我联系，获得允许之后请注明出处：<a href="/2017/11/07/Python绘制分形树-一/" target="_blank" rel="external">http://qinlong.men/2017/11/07/Python绘制分形树-一/</a>
+        
+    </div>
+    <footer>
+        <a href="http://qinlong.men">
+            <img src="/img/avatar.jpg" alt="秦龙">
+            秦龙
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/11/07/Python绘制分形树-一/&title=《Python绘制分形树(一)》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/11/07/Python绘制分形树-一/&title=《Python绘制分形树(一)》 — Dreamkong&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/11/07/Python绘制分形树-一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python绘制分形树(一)》 — Dreamkong&url=http://qinlong.men/2017/11/07/Python绘制分形树-一/&via=http://qinlong.men" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/11/07/Python绘制分形树-一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/26/Python高效编程-五/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python高效编程(五)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitment_thread"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+            var gitment = new Gitment({
+                owner: 'dreamkong',
+                repo: 'comments.github.io',
+                oauth: {
+                    client_id: 'c8b49e2efe2768a16dbf',
+                    client_secret: '9daac8eaa671cadb51d9104cfc08c4de707cf392',
+                },
+            })
+            gitment.render('comments')
+        </script>
+    </section>
+
+
+
+    <div id="gitalk-container"></div>
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦龙 &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://qinlong.men/2017/11/07/Python绘制分形树-一/&title=《Python绘制分形树(一)》 — Dreamkong&pic=http://qinlong.men/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://qinlong.men/2017/11/07/Python绘制分形树-一/&title=《Python绘制分形树(一)》 — Dreamkong&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://qinlong.men/2017/11/07/Python绘制分形树-一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python绘制分形树(一)》 — Dreamkong&url=http://qinlong.men/2017/11/07/Python绘制分形树-一/&via=http://qinlong.men" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://qinlong.men/2017/11/07/Python绘制分形树-一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3aS27DMAxF0ex/0y7QUYHU9n2kUtTU1ShwE1mnA0L8vF54Hd/r52fy5H2H9+fvfz37zoIlQ4aMxzKOy3XGSH97fbjO/jJkyNiHwbduvewSRgL36XMZMmTIACGYMNInMmTIkNEJuDw15Z9lyJAh45rRSUTT4hq/Dn4kF5chQ8YDGbXGwN98/nh/Q4YMGf+ecbTXqlYB3+GXPWXIkDGakV7j0stfLUFNmwQyZMjYgXEW5mrtxjTRXYWUIUPGVEa/iNZvWJJstBX7ZciQMYhRazGmJbm1Se9pLi5DhoxBDN4MqAXQTrMhDe4yZMjYgUE27YRLHqz5NfRmxk2GDBmDGP1CGCnip7+Kx9RkyJAxmpFezngUr41okIJgcDWUIUPGCEYaLsnWaYJaG/K4GQuTIUPGIEZn2CIdkiDXxM7OMmTImMpIr2h8RKP2nfSfKEOGjNkMfmhC4qE5feNNyJYhQ8ZoRnr0NIzW9klraDJkyNiHwY+SFv1RoAQDFq3hMBkyZDycsapil7Yhaw3U+FIoQ4aMQQwedmvsA69iGU6GDBmjGf2RC94qSANx3HiQIUPGOMYRrlqiWwvcwXtlyJAxmrEqWqdDFbVxDRkyZOzMqAXZtGzHi3fFM8iQIWMDRi3IdtoJtfT1ptAmQ4YMGfhAfFAjLecFLUwZMmRsyeAlMN4kWDZYJkOGjA0YJIm9Pih5TnbgQVmGDBn7MNLGAAmv/GpYC+UL+hsyZMh4BuML5ZpqmDMbaAwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
