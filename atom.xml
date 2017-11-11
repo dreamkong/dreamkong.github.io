@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qinlong.men/"/>
-  <updated>2017-11-07T09:24:13.000Z</updated>
+  <updated>2017-11-11T08:07:44.000Z</updated>
   <id>http://qinlong.men/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则表达式</title>
+    <link href="http://qinlong.men/2017/11/11/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://qinlong.men/2017/11/11/正则表达式/</id>
+    <published>2017-11-11T07:10:12.000Z</published>
+    <updated>2017-11-11T08:07:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一起回顾一下正则表达式.</p><a id="more"></a><h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://owz0zbwsq.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6.png" alt="正则表达式特殊字符.png" title="">                </div>                <div class="image-caption">正则表达式特殊字符.png</div>            </figure><ul><li>“^” 以开头</li><li>“$” 以结尾</li><li>“.” 任意字符</li><li>“*” 任意多次</li><li>“?” 非贪婪模式</li><li>“+” 至少出现一次</li><li>“{2}” 出现2次</li><li>“{2,}” 出现至少2次</li><li>“{2,5}” 出现2次到5次</li><li>“|” 或</li><li>“[]” 满足[]中任意一个就可以[a,b][0-9]</li><li>“[^]” 取反[^1]不是1就可以</li><li>“\s” 空格</li><li>“\S” 不为空格</li><li>“\w” [a-zA-Z0-9_]中一种就可以</li><li>“\W” “\w”取反</li><li>“[\u4E00-\u9FA5]” 中文</li><li>“()” 要提取出来的内容</li><li>“\d” 数字</li></ul><h3 id="Python例子"><a href="#Python例子" class="headerlink" title="Python例子"></a>Python例子</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">line1 = <span class="string">"XXX出生于2008年8月8日"</span></div><div class="line">line2 = <span class="string">"XXX出生于2008/8/8"</span></div><div class="line">line3 = <span class="string">"XXX出生于2008-8-8"</span></div><div class="line">line4 = <span class="string">"XXX出生于2008-08-08"</span></div><div class="line">line5 = <span class="string">"XXX出生于2008-08"</span></div><div class="line"></div><div class="line">regex_str = <span class="string">".*出生于(\d&#123;4&#125;[年/-]\d&#123;1,2&#125;([月/-](\d&#123;1,2&#125;日|\d&#123;1,2&#125;|)|$))"</span></div><div class="line">match_obj = re.match(regex_str, line4)</div><div class="line">print(match_obj)</div><div class="line"><span class="keyword">if</span> match_obj:</div><div class="line">print(match_obj.group(<span class="number">1</span>))</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一起回顾一下正则表达式.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Python绘制分形树(二)</title>
